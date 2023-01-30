@@ -1,0 +1,54 @@
+// package main
+
+// import (
+// 	"encoding/json"
+// 	"fmt"
+// 	"log"
+// 	"net/http"
+
+// 	"github.com/gorilla/mux"
+// )
+
+// type car struct {
+// 	Name  string
+// 	Price int
+// }
+
+// func main() {
+// 	r := mux.NewRouter()
+// 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+// 		w.Write([]byte("Hello World"))
+// 	})
+
+// 	r.HandleFunc("/test", test)
+// 	r.HandleFunc("/params/{id}", paramsHandler)
+// 	r.HandleFunc("/query", queryHandler)
+// 	r.HandleFunc("/body", bodyHandler).Methods("POST")
+
+// 	log.Println("Server Running")
+// 	err := http.ListenAndServe(":3000", r)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// }
+
+// func test(w http.ResponseWriter, r *http.Request) {
+// 	w.Write([]byte("Bener"))
+// }
+
+// func paramsHandler(w http.ResponseWriter, r *http.Request) {
+// 	params := mux.Vars(r)["id"]
+// 	fmt.Fprintf(w, "%v", params)
+// }
+
+// func queryHandler(w http.ResponseWriter, r *http.Request) {
+// 	query := r.URL.Query()
+// 	fmt.Fprintf(w, "%v", query)
+// }
+
+// func bodyHandler(w http.ResponseWriter, r *http.Request) {
+// 	w.Header().Set("Content-type", "application/json")
+// 	var ferrari car
+// 	json.NewDecoder(r.Body).Decode(&ferrari)
+// 	fmt.Println(ferrari)
+// }
