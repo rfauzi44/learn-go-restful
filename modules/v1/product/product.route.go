@@ -11,4 +11,6 @@ func New(rt *mux.Router, db *gorm.DB) {
 	controller := NewController(repo)
 
 	route.HandleFunc("/", controller.Get).Methods("GET")
+	route.HandleFunc("/", controller.Add).Methods("POST")
+
 }
